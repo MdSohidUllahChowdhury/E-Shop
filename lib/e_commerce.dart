@@ -11,13 +11,20 @@ class Display_Page extends StatefulWidget {
 
 class _Display_PageState extends State<Display_Page> {
 
- List<String> brand_name = [
+ final List<String> brand_name = [
   'All',
   'Adidas',
   'Nike',
   'Bata',
   'Puma'
  ];
+
+late String selected ; //? Variable dec
+@override
+  void initState() {
+    selected = brand_name[0]; //? init here the dec variable by using brand name index
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +66,35 @@ class _Display_PageState extends State<Display_Page> {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: brand_name.length,
+                
                 itemBuilder: (context,index){
                   final brand = brand_name[index];
+                  
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Chip(label: Text(brand)
+                    
+                    child: GestureDetector(
+                      onTap: () {
+                        selected = brand;
+                      },
+                      
+                      child: Chip(
+                        padding: EdgeInsets.symmetric(horizontal: 12,),
+                       
+                        label: Text(brand,style: TextStyle(fontSize: 16),),
+                        
+                        backgroundColor:
+                        selected == brand?
+                        Theme.of(context).primaryColor
+                        : Color.fromRGBO(245, 247, 249, 1),
+                        
+                        side: BorderSide(
+                          color: Color.fromRGBO(245, 247, 249, 1),  
+                        ),
+                        shape:RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)
+                        ),
+                      ),
                     ),
                   );
                   

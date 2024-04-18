@@ -16,7 +16,8 @@ class E_Commerce_App extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Lato',
         colorScheme: ColorScheme.fromSeed(
-          seedColor:Color.fromRGBO(254,206,1,1)),
+          seedColor:Color.fromRGBO(254,206,1,1),
+          primary:Color.fromRGBO(254,206,1,1), ),
 
           inputDecorationTheme: InputDecorationTheme(
             hintStyle: TextStyle(
