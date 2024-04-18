@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:e_commerce_app/global_call.dart';
+import 'package:e_commerce_app/viewing_shoes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+
 
 class Display_Page extends StatefulWidget {
   const Display_Page({super.key});
@@ -75,7 +77,9 @@ late String selected ; //? Variable dec
                     
                     child: GestureDetector(
                       onTap: () {
-                        selected = brand;
+                        setState(() {
+                          selected = brand;
+                        });
                       },
                       
                       child: Chip(
@@ -87,7 +91,7 @@ late String selected ; //? Variable dec
                         selected == brand?
                         Theme.of(context).primaryColor
                         : Color.fromRGBO(245, 247, 249, 1),
-                        
+
                         side: BorderSide(
                           color: Color.fromRGBO(245, 247, 249, 1),  
                         ),
@@ -100,6 +104,19 @@ late String selected ; //? Variable dec
                   
                 }
                 ),
+            ),
+
+            Expanded(
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (context,index){
+                 final product = products[index];
+                 return Show_Card(
+                  title:product['title'] as String , 
+                  price: product['price']as double,
+                  image: product['imageUrl'] as String,
+                   );
+              }),
             )
           ],
         ),
