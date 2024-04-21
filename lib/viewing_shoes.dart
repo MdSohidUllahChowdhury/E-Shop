@@ -30,13 +30,16 @@ class Show_Card extends StatelessWidget {
                     children: [
                       Text(title,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                       SizedBox(height: 6,),
-                      Text('\$$price',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
+                      Text('\$$price',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold)
+                        ),
                       SizedBox(height: 6,),
                       Center(
                         child: Image(
                           fit: BoxFit.cover,
-                          image: AssetImage(image),
-                          
+                          image: AssetImage(image), 
                           height: 240,
                           ),
                       )

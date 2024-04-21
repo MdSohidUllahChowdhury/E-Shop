@@ -24,7 +24,8 @@ class _Display_PageState extends State<Display_Page> {
 late String selected ; //? Variable dec
 @override
   void initState() {
-    selected = brand_name[0]; //? init here the dec variable by using brand name index
+    selected = brand_name[0]; 
+    //? init here the dec variable by using brand name index
     super.initState();
   }
 
@@ -85,7 +86,8 @@ late String selected ; //? Variable dec
                       child: Chip(
                         padding: EdgeInsets.symmetric(horizontal: 12,),
                        
-                        label: Text(brand,style: TextStyle(fontSize: 16),),
+                        label: Text(brand,
+                        style: TextStyle(fontSize: 16),),
                         
                         backgroundColor:
                         selected == brand?
@@ -115,7 +117,9 @@ late String selected ; //? Variable dec
                   title:product['title'] as String , 
                   price: product['price']as double,
                   image: product['imageUrl'] as String,
-                  bgcolor: index.isEven? Color.fromRGBO(216, 240, 253, 1) : Color.fromRGBO(245, 247, 249, 1)
+                  bgcolor: index.isEven?
+                   Color.fromRGBO(216, 240, 253, 1) :
+                    Color.fromRGBO(245, 247, 249, 1)
                    );
               }),
             )

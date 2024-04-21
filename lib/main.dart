@@ -11,21 +11,25 @@ class E_Commerce_App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       home: Display_Page(),
       debugShowCheckedModeBanner: false,
+      
+      
       theme: ThemeData(
         fontFamily: 'Lato',
         colorScheme: ColorScheme.fromSeed(
-          seedColor:Color.fromRGBO(254,206,1,1),
-          primary:Color.fromRGBO(254,206,1,1), ),
+        seedColor:Color.fromRGBO(254,206,1,1),
+        primary:Color.fromRGBO(254,206,1,1), ),
 
-          inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: InputDecorationTheme(
+          prefixIconColor: Colors.grey,
             hintStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16
-            ),
-            prefixIconColor: Colors.grey,
-          )
+            fontWeight: FontWeight.bold,
+            fontSize: 16
+            ), 
+          ),
+        useMaterial3: true  
       ),
     );
   }
