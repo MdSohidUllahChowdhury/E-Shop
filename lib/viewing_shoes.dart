@@ -4,12 +4,14 @@ class Show_Card extends StatelessWidget {
   final String title;
   final double price;
   final String image;
+  final Color  bgcolor;
   
   const Show_Card({
     super.key,
     required this.title,
     required this.price,
     required this.image,
+    required this.bgcolor,
     });
 
   @override
@@ -20,7 +22,7 @@ class Show_Card extends StatelessWidget {
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
-         color: Color.fromRGBO(216, 240, 253, 1),
+         color: bgcolor, //Color.fromRGBO(216, 240, 253, 1),
          borderRadius: BorderRadius.circular(20)
       ),
                   child: Column(
@@ -34,6 +36,7 @@ class Show_Card extends StatelessWidget {
                         child: Image(
                           fit: BoxFit.cover,
                           image: AssetImage(image),
+                          
                           height: 240,
                           ),
                       )

@@ -115,6 +115,7 @@ late String selected ; //? Variable dec
                   title:product['title'] as String , 
                   price: product['price']as double,
                   image: product['imageUrl'] as String,
+                  bgcolor: index.isEven? Color.fromRGBO(216, 240, 253, 1) : Color.fromRGBO(245, 247, 249, 1)
                    );
               }),
             )
