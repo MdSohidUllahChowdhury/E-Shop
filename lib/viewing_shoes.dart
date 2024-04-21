@@ -28,7 +28,11 @@ class Show_Card extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                      Text(title,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                        ),
                       SizedBox(height: 6,),
                       Text('\$$price',
                       style: TextStyle(
@@ -38,9 +42,10 @@ class Show_Card extends StatelessWidget {
                       SizedBox(height: 6,),
                       Center(
                         child: Image(
-                          fit: BoxFit.cover,
+                          //fit: BoxFit.cover,
                           image: AssetImage(image), 
                           height: 240,
+                          width: double.infinity,
                           ),
                       )
                     ],
