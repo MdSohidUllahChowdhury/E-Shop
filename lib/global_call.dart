@@ -1,3 +1,5 @@
+//import 'package:e_commerce_app/cart.dart';
+
 final products = [
   {
     'id': '0',
@@ -31,4 +33,15 @@ final products = [
     'company': 'Nike',
     'sizes': [8, 9, 10],
   },
+];
+
+final cart = [
+  {
+   'id': '3',
+    'title': 'Jordan Shoes',
+    'price': 420.69,
+    'imageUrl': 'images/shoe4.png',
+    'company': 'Nike',
+    'sizes': 8 
+  }
 ];
