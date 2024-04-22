@@ -1,6 +1,5 @@
+import 'package:e_commerce_app/shoe_details.dart';
 import 'package:flutter/material.dart';
-//import 'package:e_commerce_app/cart.dart';
-import 'package:e_commerce_app/details_page.dart';
 import 'package:e_commerce_app/global_call.dart';
 import 'package:e_commerce_app/viewing_shoes.dart';
 
@@ -119,7 +118,7 @@ late String selected ; //? Variable dec
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(builder: (context){
-                        return Details_Page(product_name: product);
+                        return Details_Page(product: product);
                       }
                       )
                     );

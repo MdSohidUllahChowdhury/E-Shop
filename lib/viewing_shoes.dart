@@ -22,7 +22,7 @@ class Show_Card extends StatelessWidget {
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
-         color: bgcolor, //Color.fromRGBO(216, 240, 253, 1),
+         color: bgcolor, 
          borderRadius: BorderRadius.circular(20)
       ),
                   child: Column(

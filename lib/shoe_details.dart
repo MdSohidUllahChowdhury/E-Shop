@@ -1,14 +1,14 @@
-//import 'dart:ffi';
-
+import 'package:e_commerce_app/provider_cart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Details_Page extends StatefulWidget {
 
 
 
-  final Map<String,Object> product_name;
+  final Map<String,Object> product;
    Details_Page({
-    super.key, required this.product_name
+    super.key, required this.product
     });
   
   @override
@@ -17,6 +17,29 @@ class Details_Page extends StatefulWidget {
 
 class _Details_PageState extends State<Details_Page> {
   int size_selected = 0;
+ 
+ void onTap (){
+  if (size_selected != 0){
+  Provider.of<CartProvider>(context,listen: false).addToCart(
+    {
+  
+   'id': widget.product['id'],
+    'title': widget.product['title'],
+    'price': widget.product['price'],
+    'imageUrl': widget.product['imageUrl'],
+    'company':widget.product ['company'],
+    'sizes': size_selected
+  
+  }
+  
+  );ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Successfully Added To The Cart')));
+  }else(
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Hey! Select Size!!!')))
+  );
+ }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +55,7 @@ class _Details_PageState extends State<Details_Page> {
         body: Column(
           children: [
             Center(
-              child: Text(widget.product_name['title']as String,
+              child: Text(widget.product['title']as String,
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold),
@@ -40,7 +63,7 @@ class _Details_PageState extends State<Details_Page> {
             ),
 
             //Spacer(),
-            Image.asset(widget.product_name['imageUrl'] as String),
+            Image.asset(widget.product['imageUrl'] as String),
             //Spacer(),
 
            // Text(product_name['price'] as dynamic)
@@ -49,7 +72,7 @@ class _Details_PageState extends State<Details_Page> {
             height: 100,
             child: Column(
               children: [
-                Text('\$${widget.product_name['price']}',style: TextStyle(
+                Text('\$${widget.product['price']}',style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold),
                     ),
@@ -60,12 +83,12 @@ class _Details_PageState extends State<Details_Page> {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                    
-                    itemCount: (widget.product_name['sizes']as List<int>).length,
+                    itemCount: (widget.product['sizes']as List<int>).length,
                     
                     itemBuilder: 
                   (context,index)
                   {
-                    final size = (widget.product_name['sizes']as List<int>)[index];
+                    final size = (widget.product['sizes']as List<int>)[index];
                     return Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: GestureDetector(
@@ -93,7 +116,7 @@ class _Details_PageState extends State<Details_Page> {
                   padding: const EdgeInsets.all(14.0),
                   child: ElevatedButton(
                     
-                    onPressed: (){}, 
+                    onPressed: onTap, 
                   child: Row(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.shopping_cart_outlined,color: Colors.black,),
