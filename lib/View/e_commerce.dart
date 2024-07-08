@@ -1,6 +1,9 @@
-import 'package:e_commerce_app/cart.dart';
-import 'package:e_commerce_app/home_ui.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:e_commerce_app/View/cart.dart';
+import 'package:e_commerce_app/View/home_ui.dart';
 import 'package:flutter/material.dart';
+
 
 class Display_Page extends StatefulWidget {
   const Display_Page({super.key});
@@ -11,15 +14,20 @@ class Display_Page extends StatefulWidget {
 
 class _Display_PageState extends State<Display_Page> {
   
+  // ignore: non_constant_identifier_names
   int navigation_index = 0;
-  List<Widget>page = [Home_UI(),Cart()];
+ 
+  List<Widget> page = [
+    const Home_UI(),
+    const Cart(),
+    ];
 
   @override
   Widget build(BuildContext context) {
     return 
     Scaffold(
      
-      body: //navigation_index == 0? Home_UI() : Cart() 
+      body: 
          IndexedStack( //?j khane page reke onno page e gele abar return korle same jaygay thake
          index: navigation_index,
          children: page,
@@ -35,7 +43,7 @@ class _Display_PageState extends State<Display_Page> {
               navigation_index = value;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: ''),
             BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ''),
           ]

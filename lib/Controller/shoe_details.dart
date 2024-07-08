@@ -1,21 +1,20 @@
-import 'package:e_commerce_app/provider_cart.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:e_commerce_app/Model/provider_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Details_Page extends StatefulWidget {
 
-
-
   final Map<String,Object> product;
-   Details_Page({
-    super.key, required this.product
-    });
+  const Details_Page({super.key, required this.product});
   
   @override
   State<Details_Page> createState() => _Details_PageState();
 }
 
 class _Details_PageState extends State<Details_Page> {
+  // ignore: non_constant_identifier_names
   int size_selected = 0;
  
  void onTap (){
@@ -32,19 +31,28 @@ class _Details_PageState extends State<Details_Page> {
   
   }
   
-  );ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Successfully Added To The Cart')));
-  }else(
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Hey! Select Size!!!')))
   );
- }
+  
+  ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Successfully Added To The Cart')
+      )
+      );
+  }
+  else{
+    (
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Hey! Select Size!!!')
+      )
+      )
+  );
+  }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text('Details',
+        title: const Text('Details',
         style:TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.bold
@@ -56,27 +64,25 @@ class _Details_PageState extends State<Details_Page> {
           children: [
             Center(
               child: Text(widget.product['title']as String,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold),
                     ),    
-            ),
-
-            //Spacer(),
+                    ),
+            
             Image.asset(widget.product['imageUrl'] as String),
-            //Spacer(),
+           
 
-           // Text(product_name['price'] as dynamic)
-
-           Container(
+           SizedBox(
             height: 100,
             child: Column(
               children: [
-                Text('\$${widget.product['price']}',style: TextStyle(
+                Text('\$${widget.product['price']}',
+                  style: const TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.bold),
                     ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
 
                 SizedBox(
                   height: 50,
@@ -85,8 +91,7 @@ class _Details_PageState extends State<Details_Page> {
                    
                     itemCount: (widget.product['sizes']as List<int>).length,
                     
-                    itemBuilder: 
-                  (context,index)
+                    itemBuilder: (context,index)
                   {
                     final size = (widget.product['sizes']as List<int>)[index];
                     return Padding(
@@ -115,20 +120,20 @@ class _Details_PageState extends State<Details_Page> {
            Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: ElevatedButton(
-                    
-                    onPressed: onTap, 
-                  child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    onPressed: onTap,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    minimumSize: const Size(80, 50),
+                    elevation: 6
+                    ), 
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
                       Icon(Icons.shopping_cart_outlined,color: Colors.black,),
                       SizedBox(width: 6,),
                       Text('Add To Cart',
                       style: TextStyle(color: Colors.black),),
                     ],
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    minimumSize: Size(80, 50),
-                    elevation: 6
                   ),
                   ),
                 )

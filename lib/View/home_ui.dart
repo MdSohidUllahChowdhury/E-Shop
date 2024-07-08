@@ -1,7 +1,9 @@
-import 'package:e_commerce_app/shoe_details.dart';
+// ignore_for_file: camel_case_types
+
+import 'package:e_commerce_app/Controller/product_model.dart';
+import 'package:e_commerce_app/Controller/shoe_details.dart';
+import 'package:e_commerce_app/Controller/viewing_shoes.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_app/global_call.dart';
-import 'package:e_commerce_app/viewing_shoes.dart';
 
 class Home_UI extends StatefulWidget {
   const Home_UI({super.key});
@@ -11,6 +13,8 @@ class Home_UI extends StatefulWidget {
 }
 
 class _Home_UIState extends State<Home_UI> {
+  
+  // ignore: non_constant_identifier_names
   final List<String> brand_name = [
   'All',
   'Adidas',
@@ -19,34 +23,32 @@ class _Home_UIState extends State<Home_UI> {
   'Puma'
  ];
 
-late String selected ; //? Variable dec
+late String selected ; //* Variable dec
 @override
   void initState() {
-    selected = brand_name[0]; 
-    //? init here the dec variable by using brand name index
+    selected = brand_name[0]; //* init here the dec variable by using brand name index
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-       SafeArea(
+      
+      body:SafeArea(
         child: Column(
           children: [
-            Row(
+            
+            const Row(
               children: [
                 Text(' Shoes \n Collection',
-                style: TextStyle(
+                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold),
                   ),
-                 SizedBox(width: 8,) ,
+                 SizedBox(width: 8),
                 Expanded(
                   child: TextField(
-                    
-                  decoration: 
-                  InputDecoration(
+                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search),
                     hintText: 'Search',
                     border: OutlineInputBorder(
@@ -68,7 +70,6 @@ late String selected ; //? Variable dec
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: brand_name.length,
-                
                 itemBuilder: (context,index){
                   final brand = brand_name[index];
                   
@@ -83,17 +84,17 @@ late String selected ; //? Variable dec
                       },
                       
                       child: Chip(
-                        padding: EdgeInsets.symmetric(horizontal: 12,),
+                        padding: const EdgeInsets.symmetric(horizontal: 12,),
                        
                         label: Text(brand,
-                        style: TextStyle(fontSize: 16),),
+                        style: const TextStyle(fontSize: 16),),
                         
                         backgroundColor:
-                        selected == brand?
-                        Theme.of(context).primaryColor
-                        : Color.fromRGBO(245, 247, 249, 1),
+                        selected == brand ?
+                        Theme.of(context).primaryColor :
+                        const Color.fromRGBO(245, 247, 249, 1),
 
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: Color.fromRGBO(245, 247, 249, 1),  
                         ),
                         shape:RoundedRectangleBorder(
@@ -101,8 +102,7 @@ late String selected ; //? Variable dec
                         ),
                       ),
                     ),
-                  );
-                  
+                  ); 
                 }
                 ),
             ),
@@ -112,8 +112,7 @@ late String selected ; //? Variable dec
                 itemCount: products.length,
                 itemBuilder: (context,index){
                  final product = products[index];
-                 
-                 
+                                 
                  return GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
@@ -128,8 +127,8 @@ late String selected ; //? Variable dec
                     price: product['price']as double,
                     image: product['imageUrl'] as String,
                     bgcolor: index.isEven?
-                     Color.fromRGBO(216, 240, 253, 1) :
-                      Color.fromRGBO(245, 247, 249, 1)
+                     const Color.fromRGBO(216, 240, 253, 1) :
+                      const Color.fromRGBO(245, 247, 249, 1)
                      ),
                  );
               }),

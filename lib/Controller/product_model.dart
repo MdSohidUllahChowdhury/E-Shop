@@ -1,5 +1,3 @@
-//import 'package:e_commerce_app/cart.dart';
-
 final products = [
   {
     'id': '0',
@@ -9,6 +7,7 @@ final products = [
     'company': 'Nike',
     'sizes': [9, 10, 11, 12],
   },
+
   {
     'id': '1',
     'title': 'Addidas Shoes',
@@ -17,6 +16,7 @@ final products = [
     'company': 'Addidas',
     'sizes': [9, 10, 12],
   },
+
   {
     'id': '2',
     'title': 'Bata Women\'s Shoes',
@@ -25,6 +25,7 @@ final products = [
     'company': 'Bata',
     'sizes': [8, 9, 10],
   },
+
   {
     'id': '3',
     'title': 'Jordan Shoes',
@@ -33,4 +34,5 @@ final products = [
     'company': 'Nike',
     'sizes': [8, 9, 10],
   },
+  
 ];
