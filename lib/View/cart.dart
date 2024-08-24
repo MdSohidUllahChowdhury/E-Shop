@@ -20,8 +20,10 @@ class _CartState extends State<Cart> {
       appBar: AppBar(
         title:const Text('Cart Items',
           style: TextStyle(
-           fontWeight: FontWeight.w300,
-           fontSize: 25),
+           fontWeight: FontWeight.w700,
+           letterSpacing: 1.5,
+           fontSize: 25
+           ),
            ),
         centerTitle: true,
         ),
@@ -35,21 +37,21 @@ class _CartState extends State<Cart> {
                   leading: SizedBox(
                     height: 100,
                     width: 50,
-                    child: Image(image: AssetImage(cartItems['imageUrl']as String)),
+                    child: Image(image: AssetImage(cartItems['imageUrl']as String),fit: BoxFit.fill,),
                   ),
-                  
                   title: Text(cartItems['title'].toString(),
                   style: const TextStyle(
                     fontSize: 20,
+                    letterSpacing: 1.2,
                     fontWeight: FontWeight.bold),
                     ),
-
+                
                   subtitle: Text('Size: ${cartItems['sizes']}',
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize:14,
                     fontWeight: FontWeight.bold),
                     ),
-
+                
                   trailing: IconButton(
                     onPressed: (){
                     showDialog(

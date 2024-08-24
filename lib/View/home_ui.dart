@@ -15,7 +15,7 @@ class Home_UI extends StatefulWidget {
 class _Home_UIState extends State<Home_UI> {
   
   // ignore: non_constant_identifier_names
-  final List<String> brand_name = [
+  final List<String> brand_name = [ //* Brand Name Declear
   'All',
   'Adidas',
   'Nike',
@@ -24,6 +24,7 @@ class _Home_UIState extends State<Home_UI> {
  ];
 
 late String selected ; //* Variable dec
+
 @override
   void initState() {
     selected = brand_name[0]; //* init here the dec variable by using brand name index
