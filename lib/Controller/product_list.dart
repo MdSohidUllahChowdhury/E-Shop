@@ -1,4 +1,4 @@
-final products = [
+final List<Map<String, Object>> products = [
   {
     'id': '0',
     'title': 'Men\'s Nike Shoes',
